@@ -1,0 +1,87 @@
+# ============================================================
+# Profile Metrics Auto-Update Workflow
+# Repository: Riteshkumar1205/Riteshkumar1205
+#
+# Schedule: Daily at 06:00 UTC (11:30 AM IST)
+# Trigger: Manual via workflow_dispatch
+#
+# This workflow fetches metrics from GitHub, LeetCode,
+# TryHackMe, and Hack The Box APIs, then updates
+# data/profile-metrics.json and injects dynamic content
+# into README.md between DYNAMIC-METRICS markers.
+#
+# Required secrets:
+#   - None for public API data
+#   - GITHUB_TOKEN is provided automatically
+#
+# Optional secrets (for private/authenticated APIs):
+#   - THM_API_KEY: TryHackMe API key (if available)
+#   - HTB_API_KEY: Hack The Box API key (if available)
+# ============================================================
+
+name: Update Profile Metrics
+
+on:
+  schedule:
+    # Daily at 06:00 UTC (11:30 AM IST)
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      force_update:
+        description: 'Force update even if APIs fail'
+        required: false
+        default: 'false'
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  update-metrics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run metrics update
+        env:
+          GITHUB_USERNAME: Riteshkumar1205
+          LEETCODE_USERNAME: RiteshKumar2512
+          THM_USERNAME: RITESH26
+          HTB_USERNAME: Hackglb2025
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Optional authenticated API keys
+          THM_API_KEY: ${{ secrets.THM_API_KEY }}
+          HTB_API_KEY: ${{ secrets.HTB_API_KEY }}
+          FORCE_UPDATE: ${{ github.event.inputs.force_update || 'false' }}
+        run: |
+          python scripts/update_metrics.py
+          python scripts/generate_dashboard.py
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet data/profile-metrics.json README.md || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/profile-metrics.json README.md
+          git commit -m "chore: update profile metrics [skip ci]"
+          git push

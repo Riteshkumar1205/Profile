@@ -1,0 +1,8 @@
+# Profile Metrics Automation — Python Dependencies
+# Used by GitHub Actions workflow: .github/workflows/update-profile.yml
+# No external dependencies required — all scripts use Python stdlib only.
+#
+# If you add external API clients in the future, add them here.
+# Example:
+#   requests>=2.31.0
+#   httpx>=0.25.0

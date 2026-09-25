@@ -1,0 +1,53 @@
+{
+  "last_updated": "2026-09-25 18:48 UTC",
+  "github": {
+    "status": "success",
+    "username": "Riteshkumar1205",
+    "public_repos": 31,
+    "followers": 5,
+    "following": 2,
+    "total_stars": 6,
+    "total_forks": 0,
+    "top_languages": [
+      {
+        "language": "TypeScript",
+        "count": 7
+      },
+      {
+        "language": "Python",
+        "count": 7
+      },
+      {
+        "language": "HTML",
+        "count": 5
+      },
+      {
+        "language": "JavaScript",
+        "count": 3
+      },
+      {
+        "language": "C++",
+        "count": 1
+      }
+    ],
+    "account_created": "2025-06-11T06:06:45Z",
+    "bio": null,
+    "repos_fetched": 31,
+    "original_repos": 25
+  },
+  "leetcode": {
+    "status": "success",
+    "username": "RiteshKumar2512",
+    "total_solved": 449,
+    "easy_solved": 153,
+    "medium_solved": 226,
+    "hard_solved": 70,
+    "ranking": 262503
+  },
+  "tryhackme": {
+    "status": "stale"
+  },
+  "hackthebox": {
+    "status": "stale"
+  }
+}

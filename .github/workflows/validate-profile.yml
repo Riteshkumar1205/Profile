@@ -1,0 +1,44 @@
+name: Validate Profile
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Verify Python Syntax
+        run: |
+          python -m compileall scripts/
+
+      - name: Validate Links in README
+        run: |
+          python scripts/validate_links.py
+
+      - name: Validate JSON files
+        run: |
+          for f in data/*.json; do
+            if [ -f "$f" ]; then
+              python -c "import json; json.load(open('$f'))"
+            fi
+          done
+
+      - name: Check for dynamic markers
+        run: |
+          grep -q "<!-- DYNAMIC-METRICS:START" README.md
+          grep -q "<!-- DYNAMIC-METRICS:END" README.md
+          grep -q "<!-- DYNAMIC-RECENT:START" README.md
+          grep -q "<!-- DYNAMIC-RECENT:END" README.md
