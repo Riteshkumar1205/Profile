@@ -88,9 +88,9 @@ mindmap
 
 <!-- DYNAMIC-METRICS:START — Auto-generated metrics from platform APIs -->
 > **GitHub:** 34 public repositories · 5 followers · 6 total stars
-> **LeetCode:** 475 problems solved (Easy: 159 · Medium: 239 · Hard: 77)
+> **LeetCode:** 476 problems solved (Easy: 159 · Medium: 240 · Hard: 77)
 >
-> *Automatically updated · Last refresh: 2026-10-26 12:25 UTC*
+> *Automatically updated · Last refresh: 2026-10-27 11:44 UTC*
 <!-- DYNAMIC-METRICS:END -->
 
 <div align="center">
@@ -252,9 +252,9 @@ graph LR
 ## 🛠️ Recently Updated
 
 <!-- DYNAMIC-RECENT:START -->
+- **[dsa-practice-2025](https://github.com/Riteshkumar1205/dsa-practice-2025)** — *Updated: October 26, 2026*
+- **[Profile](https://github.com/Riteshkumar1205/Profile)** — *Updated: October 26, 2026*
 - **[sketchrush](https://github.com/Riteshkumar1205/sketchrush)** — *Updated: October 25, 2026*
-- **[dsa-practice-2025](https://github.com/Riteshkumar1205/dsa-practice-2025)** — *Updated: October 25, 2026*
-- **[Profile](https://github.com/Riteshkumar1205/Profile)** — *Updated: October 25, 2026*
 - **[SecureQR-COE](https://github.com/Riteshkumar1205/SecureQR-COE)** — *Updated: September 03, 2026*
 <!-- DYNAMIC-RECENT:END -->
 
