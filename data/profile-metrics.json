@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-13 14:04 UTC",
+  "last_updated": "2026-11-14 13:06 UTC",
   "github": {
     "status": "success",
     "username": "Riteshkumar1205",
@@ -38,11 +38,11 @@
   "leetcode": {
     "status": "success",
     "username": "RiteshKumar2512",
-    "total_solved": 491,
+    "total_solved": 492,
     "easy_solved": 162,
     "medium_solved": 250,
-    "hard_solved": 79,
-    "ranking": 226937
+    "hard_solved": 80,
+    "ranking": 226195
   },
   "tryhackme": {
     "status": "stale"
