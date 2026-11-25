@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-24 17:06 UTC",
+  "last_updated": "2026-11-25 16:54 UTC",
   "github": {
     "status": "success",
     "username": "Riteshkumar1205",
@@ -42,7 +42,7 @@
     "easy_solved": 166,
     "medium_solved": 252,
     "hard_solved": 80,
-    "ranking": 222912
+    "ranking": 222254
   },
   "tryhackme": {
     "status": "stale"
